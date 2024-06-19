@@ -1,0 +1,49 @@
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "a.txt"
+infile= "files/aaa.txt"
+id = 1
+
+[[events]]
+type = "SEND_LINE"
+id = 1
+
+[[events]]
+type = "SEND_HEADERS"
+id = 1
+
+[[events]]
+type = "SEND_BODY"
+id = 1
+size = 1000
+
+[[events]]
+type = "SLEEP"
+seconds = 1
+
+[[events]]
+type = "CREATE"
+method = "GET"
+uri = "a.txt"
+id = 2
+
+[[events]]
+type = "SEND_ALL"
+id = 2
+
+[[events]]
+type = "SLEEP"
+seconds = 1
+
+[[events]]
+type = "SEND_BODY"
+id = 1
+
+[[events]]
+type = "WAIT"
+id = 1
+
+[[events]]
+type = "WAIT"
+id = 2

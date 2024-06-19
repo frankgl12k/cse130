@@ -1,0 +1,114 @@
+# Create request 1 (R1): PUT the contents of `files/bible.txt` to `bible.txt`.
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "bible.txt"
+infile= "files/bible.txt"
+id = 1
+
+
+# Create request 3 (R1)
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "aaa.txt"
+infile= "files/aaa.txt"
+id = 3
+
+# Create request 2 (R2): GET the contents of `foo.txt`.
+[[events]]
+type = "CREATE"
+method = "GET"
+uri = "foo.txt"
+id = 2
+
+# Create request 4 (R4): GET the contents of `foo.txt`.
+[[events]]
+type = "CREATE"
+method = "GET"
+uri = "bar.txt"
+id = 4
+
+
+# Send R1's request line.
+[[events]]
+type = "SEND_LINE"
+id = 1
+
+
+
+# Send R2's request line.
+[[events]]
+type = "SEND_LINE"
+id = 2
+
+
+# Send R3's request line.
+[[events]]
+type = "SEND_LINE"
+id = 3
+
+
+
+# Send R1's request line.
+[[events]]
+type = "SEND_LINE"
+id = 4
+
+
+# sleepy
+[[event]]
+type = "SLEEP"
+seconds = 10
+
+
+# Send all  R1's request
+[[events]]
+type = "SEND_HEADERS"
+id = 1
+
+# Send entirety of R2.
+[[events]]
+type = "SEND_HEADERS"
+id = 2
+
+
+
+# Send entirety of R3.
+[[events]]
+type = "SEND_HEADERS"
+id = 3
+
+
+
+# Send entirety of R3.
+[[events]]
+type = "SEND_HEADERS"
+id = 4
+
+
+# Send all  R1's request
+[[events]]
+type = "SEND_BODY"
+id = 1
+
+# Send entirety of R2.
+[[events]]
+type = "SEND_BODY"
+id = 2
+
+
+
+# Send entirety of R3.
+[[events]]
+type = "SEND_BODY"
+id = 3
+
+
+
+# Send entirety of R3.
+[[events]]
+type = "SEND_BODY"
+id = 4
+
+

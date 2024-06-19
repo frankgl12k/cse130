@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>JavaScript Tutorials!</title>
+		</head>
+		<body>
+<h1 id="sample"></h1>
+<script type="text/javascript">
+document.write('Hello World!');
+//document.getElementById("sample").innerHTML="My Name is name.";
+
+var firstName = "John"
+var lastName = "Nameson"
+document.getElementById("sample").innerHTML=firstName+" "+lastName;
+//window.alert('Welcome!');
+var x=12345;
+var y="sam";
+function abc()
+{
+	
+	document.write("This is a function." + " " + x + "<br/>")
+}
+function xyz()
+{
+	abc();
+	document.write("This is a function." + " " + y + "<br/>")
+}
+abc();
+xyz();
+document.write("Outside the function. "+ x);
+</script>
+	</body>
+</html>

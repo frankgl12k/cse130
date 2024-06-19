@@ -1,0 +1,137 @@
+# Start R1
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "contended.txt"
+infile= "files/1.txt"
+id = 1
+
+# Start R2
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "contended.txt"
+infile = "files/2.txt"
+id = 2
+
+# Start R3
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "contended.txt"
+infile = "files/3.txt"
+id = 3
+
+# Start R4
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "contended.txt"
+infile = "files/4.txt"
+id = 4
+
+# Start R5
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "contended.txt"
+infile = "files/a.txt"
+id = 5
+
+[[events]]
+type = "SEND_LINE"
+id = 1
+
+[[events]]
+type = "SEND_LINE"
+id = 2
+
+[[events]]
+type = "SEND_LINE"
+id = 3
+
+[[events]]
+type = "SEND_LINE"
+id = 4
+
+[[events]]
+type = "SEND_LINE"
+id = 5
+
+[[events]]
+type = "SEND_HEADERS"
+id = 1
+
+[[events]]
+type = "SEND_HEADERS"
+id = 2
+
+[[events]]
+type = "SEND_HEADERS"
+id = 3
+
+[[events]]
+type = "SEND_HEADERS"
+id = 4
+
+[[events]]
+type = "SEND_HEADERS"
+id = 5
+
+[[events]]
+type = "SEND_BODY"
+id = 1
+
+[[events]]
+type = "SEND_BODY"
+id = 2
+
+[[events]]
+type = "SEND_BODY"
+id = 3
+
+[[events]]
+type = "SEND_BODY"
+id = 4
+
+[[events]]
+type = "SEND_BODY"
+id = 5
+
+
+[[events]]
+type = "WAIT"
+id = 1
+
+[[events]]
+type = "WAIT"
+id = 2
+
+[[events]]
+type = "WAIT"
+id = 3
+
+[[events]]
+type = "WAIT"
+id = 4
+
+[[events]]
+type = "WAIT"
+id = 5
+
+
+
+# Start R6
+[[events]]
+type = "CREATE"
+method = "GET"
+uri = "contended.txt"
+id = 6
+
+[[events]]
+type = "SEND_ALL"
+id = 6
+
+[[events]]
+type = "WAIT"
+id = 6

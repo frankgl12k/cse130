@@ -1,0 +1,66 @@
+# Start two reqs, dont send anything.
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "bible.txt"
+infile= "files/bible.txt"
+id = 1
+
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "bible.txt"
+infile= "files/bible.txt"
+id = 2
+
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "bible.txt"
+infile= "files/bible.txt"
+id = 3
+
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "bible.txt"
+infile= "files/bible.txt"
+id = 4
+
+# Send entirety of R2.
+[[events]]
+type = "SEND_ALL"
+id = 2
+
+# Send entirety of R3.
+[[events]]
+type = "SEND_ALL"
+id = 3
+
+# Send entirety of R4.
+[[events]]
+type = "SEND_ALL"
+id = 4
+
+# Wait for them to finish.
+[[events]]
+type = "WAIT"
+id = 2
+
+[[events]]
+type = "WAIT"
+id = 3
+
+[[events]]
+type = "WAIT"
+id = 4
+
+# Send rest of r1
+# Send entirety of R1.
+[[events]]
+type = "SEND_ALL"
+id = 1
+
+[[events]]
+type = "WAIT"
+id = 1

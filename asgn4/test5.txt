@@ -1,0 +1,79 @@
+# Test 5
+# Start the server with two threads.  Start two request, but only send
+# their request line.  Send two full requests, then send the data for
+# the first two request.  Ensure that the server produces correct
+# output.
+
+# Start R1
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "bible.txt"
+infile= "files/bible.txt"
+id = 1
+
+# Start R2
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "aaa.txt"
+infile = "files/aaa.txt"
+id = 2
+
+# Send request line of R1 and R2
+[[events]]
+type = "SEND_LINE"
+id = 1
+
+[[events]]
+type = "SEND_LINE"
+id = 2
+
+# Send two more full requests.
+[[events]]
+type = "CREATE"
+method = "GET"
+uri = "README.md"
+id = 3
+
+[[events]]
+type = "CREATE"
+method = "PUT"
+uri = "gamer.txt"
+infile = "files/gamer.txt"
+id = 4
+
+[[events]]
+type = "SEND_ALL"
+id = 3
+
+[[events]]
+type = "SEND_ALL"
+id = 4
+
+# I THINK the test waits for R3 and R4 to finish before sending the rest of 
+# R1 and R2 (which, if true, hints at how the server should handle slow connections)
+[[events]]
+type = "WAIT"
+id = 3
+
+[[events]]
+type = "WAIT"
+id = 4
+
+# Finish R1 and R2
+[[events]]
+type = "SEND_HEADERS"
+id = 1
+
+[[events]]
+type = "SEND_HEADERS"
+id = 2
+
+[[events]]
+type = "SEND_BODY"
+id = 1
+
+[[events]]
+type = "SEND_BODY"
+id = 2
